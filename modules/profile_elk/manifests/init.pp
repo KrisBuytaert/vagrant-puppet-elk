@@ -34,7 +34,7 @@ class profile_elk {
     content => '
     output {
       elasticsearch {
-        host  => "localhost"
+        cluster  => "playground"
       }
       }',
       order => 20,
@@ -45,27 +45,12 @@ class profile_elk {
   #
 
   class { 'elasticsearch':
+    config  => {'cluster.name'           => 'playground' },
     status  => 'running',
     require => Yumrepo['elasticsearch'],
   }
 
   #
-  # Rsyslog config to put all the things to localhost:5544
-  # The part below will be configured in our default rsyslog setup
-  #
-
-  #  file_line { 'Configuring rsyslog':
-  #    path    => '/etc/rsyslog.conf',
-  #    line    => '*.* @localhost:5544',
-  #    match   => '\*\.\*\s\@',
-  #    notify  => Service['service rsyslogd restart']
-  #  }
-
-  # service { 'service rsyslogd restart':
-  #    name        => 'rsyslog',
-  #    hasrestart  => true,
-  #    restart     => '/sbin/service rsyslog restart',
-  #  }
 
   #
   # Yumrepos
