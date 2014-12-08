@@ -1,3 +1,3 @@
-node /client1/ {
+node /client/ {
   include ::roles::elasticsearch
 }

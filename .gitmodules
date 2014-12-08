@@ -19,3 +19,9 @@
 [submodule "modules/stdlib"]
 	path = modules/stdlib
 	url = https://github.com/puppetlabs/puppetlabs-stdlib.git
+[submodule "modules/rsyslog"]
+	path = modules/rsyslog
+	url = https://github.com/KrisBuytaert/puppet-rsyslog.git
+[submodule "modules/kibana3"]
+	path = modules/kibana3
+	url = https://github.com/carroarmato0/puppet-kibana3.git

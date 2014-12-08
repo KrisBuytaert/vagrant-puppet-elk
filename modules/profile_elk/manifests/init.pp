@@ -109,10 +109,30 @@ class profile_elk {
 
   ### Kibana 3
 
-  package { 'kibana3-html': ensure  => 'present'; }
+  class {'kibana3':
+    elasticsearch_server => 'http://"+window.location.hostname+"/_es',
+  }
+
 
   ### Apache
 
 
   class { 'apache': }
+
+
+  apache::vhost { 'kibana.playground.ing':
+    port       => '80',
+    docroot    => '/var/vhosts/kibana3/htdocs',
+    proxy_pass => [
+      { 'path' => '/_es', 'url'                   => "http://${fqdn}:9200/" },
+      { 'path' => '/_aliases', 'url'              => "http://${fqdn}:9200/_aliases" },
+      { 'path' => '/_status', 'url'               => "http://${fqdn}:9200/_status" },
+      { 'path' => '/_plugin', 'url'               => "http://${fqdn}:9200/_plugin" },
+      { 'path' => '/kibana-int/dashboard/', 'url' => "http://${fqdn}:9200/kibana-int/dashboard/" },
+      { 'path' => '/kibana-int/temp/', 'url'      => "http://${fqdn}:9200/kibana-int/temp/" },
+      { 'path' => '/(.*)/_search', 'url'          => "http://${fqdn}:9200/$1/_search" },
+    ]
+  }
+
+
 }
