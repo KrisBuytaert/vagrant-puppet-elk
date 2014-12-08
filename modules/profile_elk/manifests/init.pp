@@ -16,7 +16,7 @@ class profile_elk {
     init_defaults => $config_hash,
     java_install  => true,
     status        => 'enabled',
-    require       => Yumrepo['logstashrepo'],
+    require       => Yumrepo['logstash'],
   }
 
   logstash::configfile { 'input':
@@ -46,8 +46,7 @@ class profile_elk {
 
   class { 'elasticsearch':
     status  => 'running',
-    require => Yumrepo['Elasticsearch repository for 0.90.x packages'],
-    version => '0.90.9-1',
+    require => Yumrepo['elasticsearch'],
   }
 
   #
@@ -83,7 +82,7 @@ class profile_elk {
 
   yumrepo { 'logstash':
     name     => 'logstash',
-    baseurl  => 'http://packages.elasticsearch.org/logstash/1.3/centos',
+    baseurl  => 'http://packages.elasticsearch.org/logstash/1.4/centos',
     gpgcheck => 1,
     gpgkey   => 'http://packages.elasticsearch.org/GPG-KEY-elasticsearch',
     enabled  => 1,
@@ -112,5 +111,8 @@ class profile_elk {
 
   package { 'kibana3-html': ensure  => 'present'; }
 
+  ### Apache
 
+
+  class { 'apache': }
 }
