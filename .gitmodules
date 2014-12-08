@@ -1,0 +1,21 @@
+[submodule "modules/apache"]
+	path = modules/apache
+	url = https://github.com/puppetlabs/puppetlabs-apache.git
+[submodule "modules/concat"]
+	path = modules/concat
+	url = https://github.com/puppetlabs/puppetlabs-concat.git
+[submodule "modules/elasticsearch"]
+	path = modules/elasticsearch
+	url = https://github.com/elasticsearch/puppet-elasticsearch.git
+[submodule "modules/file_concat"]
+	path = modules/file_concat
+	url = https://github.com/electrical/puppet-lib-file_concat.git
+[submodule "modules/firewall"]
+	path = modules/firewall
+	url = https://github.com/puppetlabs/puppetlabs-firewall.git
+[submodule "modules/logstash"]
+	path = modules/logstash
+	url = https://github.com/elasticsearch/puppet-logstash.git
+[submodule "modules/stdlib"]
+	path = modules/stdlib
+	url = https://github.com/puppetlabs/puppetlabs-stdlib.git
