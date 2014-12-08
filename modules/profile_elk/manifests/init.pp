@@ -81,9 +81,8 @@ class profile_elk {
 
   # Adding the yumrepo for logstash
 
-  yumrepo { 'logstashrepo':
-    name     => 'logstash-repository-for-1.3.x-packages',
-    descr    => 'logstash-repository-for-1.3.x-packages',
+  yumrepo { 'logstash':
+    name     => 'logstash',
     baseurl  => 'http://packages.elasticsearch.org/logstash/1.3/centos',
     gpgcheck => 1,
     gpgkey   => 'http://packages.elasticsearch.org/GPG-KEY-elasticsearch',
@@ -92,10 +91,9 @@ class profile_elk {
 
   # Adding yumrepo for elasticsearch
 
-  yumrepo { 'Elasticsearch repository for 0.90.x packages':
-    name     => 'elasticsearch-0.90',
-    descr    => 'elasticsearch-0.90',
-    baseurl  => 'http://packages.elasticsearch.org/elasticsearch/0.90/centos',
+  yumrepo { 'elasticsearch':
+    name     => 'elasticsearch',
+    baseurl  => 'http://packages.elasticsearch.org/elasticsearch/1.4/centos',
     gpgcheck => 1,
     gpgkey   => 'http://packages.elasticsearch.org/GPG-KEY-elasticsearch',
     enabled  => 1,
