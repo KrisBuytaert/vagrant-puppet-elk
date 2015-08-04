@@ -25,3 +25,6 @@
 [submodule "modules/kibana3"]
 	path = modules/kibana3
 	url = https://github.com/carroarmato0/puppet-kibana3.git
+[submodule "modules/packetbeat"]
+	path = modules/packetbeat
+	url = https://github.com/poolski/puppet-packetbeat.git

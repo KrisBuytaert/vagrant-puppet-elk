@@ -119,5 +119,8 @@ class profile_elk {
     ]
   }
 
+  class { 'kibana4':
+    port => 8081,
+  }
 
 }
